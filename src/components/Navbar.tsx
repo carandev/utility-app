@@ -1,13 +1,17 @@
 'use client'
 import { signIn, signOut, useSession } from "next-auth/react"
 import Link from "next/link"
+import { IconTools } from '@tabler/icons-react';
 
 const Navbar = () => {
     const {data: session} = useSession()
 
   return (
     <header className="flex justify-between items-center px-6 py-3 bg-slate-800">
-        <h1>Utility App</h1>
+        <h1 className="flex gap-2 items-center">
+            <IconTools size={32} />
+            Utility App
+        </h1>
         <nav>
             <ul className="flex gap-6 items-center">
                 <li><Link href="/">Home</Link></li>
