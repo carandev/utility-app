@@ -1,7 +1,8 @@
 'use client'
-import { signIn, signOut, useSession } from "next-auth/react"
+import { signIn, useSession } from "next-auth/react"
 import Link from "next/link"
 import { IconTools } from '@tabler/icons-react';
+import Image from "next/image";
 
 const Navbar = () => {
     const {data: session} = useSession()
@@ -17,11 +18,7 @@ const Navbar = () => {
                 <li><Link href="/">Home</Link></li>
                 <li><Link href="/dashboard">Dashboard</Link></li>
                 {session?.user 
-                    ? <li><button className="bg-red-500 rounded px-2 py-1" onClick={async () => {
-                          signOut({
-                            callbackUrl: '/'
-                          })
-                    }}>Sign Out</button></li>
+                    ? <li>perfil</li>
                     : <li><button className="bg-green-600 rounded px-2 py-1" onClick={() => signIn()}>Iniciar Sesión</button></li>
                 }
             </ul>
